@@ -315,6 +315,9 @@ globalkeys = gears.table.join(
     -- Firefox
     awful.key({ modkey },            "b",     function ()  awful.util.spawn("firefox") end,
               {description = "run firefox", group = "aplications"}),
+    --Random wallpaper
+    awful.key({ modkey, "Shift" },            "b",     function ()  awful.util.spawn("nitrogen --random /home/tibor/downloads/git/space-wallpapers/ --set-zoom-fill") end,
+              {description = "randomize wallpaper", group = "other"}),
 
     awful.key({ modkey }, "x",
               function ()
@@ -569,7 +572,7 @@ autorun = true
 autorunApps = 
 { 
    "picom",
-   "nitrogen --restore"
+   "nitrogen --random /home/tibor/downloads/git/space-wallpapers/ --set-zoom-fill"
 }
 if autorun then
    for app = 1, #autorunApps do
