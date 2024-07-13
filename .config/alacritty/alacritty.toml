@@ -1,0 +1,104 @@
+# $HOME/.config/alacritty/alacritty.toml
+# by Rito Ghosh 2023-10-06
+
+# Alacritty now uses TOML formatting for its config files.
+# This is a simple example.
+
+# There are the specification here: https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
+# It is not obvious how it translates to TOML. But it is extremely straightforward.
+
+# example: WINDOW, COLORS, etc. are tables, and should be represented as [window], [colors], respectively.
+# specifics of variables go under them. e.g.- look under "dynamic_padding" under-
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#window
+# write `dynamic_padding = true` (without backticks -`) under the table [window]
+# for variables with multiple values, use "dotted keys". Like setting `padding.x = 5` under [window].
+# This is simple. If not clear, do several trials and errors.
+
+# Below is my initial set-up. The TOML homepage (https://toml.io/en/v1.0.0) was very helpful in figuring this out. 
+# I put the file alacritty.toml in $HOME/.config/alacritty. However it can be kept anywhere among the places mentioned in
+# https://github.com/alacritty/alacritty/tree/master#configuration
+
+#import = [
+#"~/.config/alacritty/base16-dark.toml",
+#"~/.config/alacritty/keybindings.toml",
+#]
+
+[window]
+opacity = 0.7
+
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+
+decorations = "None"
+decorations_theme_variant = "Dark" # "Light" or "None"
+
+startup_mode = "Windowed" # "Fullscreen" or "Windowed"
+
+dynamic_title = false
+title = "Alacritty"
+
+[scrolling]
+history = 10000
+multiplier = 5
+
+[font]
+size = 8
+normal = { family = "FiraCode Nerd Font" }
+
+[mouse]
+hide_when_typing = true
+
+[cursor]
+style = {shape = "Block", blinking = "On"}
+blink_interval = 600
+unfocused_hollow = true
+
+# Tip: for inspiration, look for values in the source code files of your favorite VS Code themes, and use the color picker in
+# Google to test colors before setting a value, or simply using an editor such as VS Code where colors are displayed in a 
+# small box when a HEX is detected by the editor.
+
+[colors.primary]
+background = "0x0a0c10"
+foreground = "0xf0f3f6"
+
+[colors.cursor]
+text = "0x0a0c10"
+cursor = "0xf0f3f6"
+
+[colors.normal]
+black = "0x7a828e"
+red = "0xff9492"
+green = "0x26cd4d"
+yellow = "0xf0b72f"
+blue = "0x71b7ff"
+magenta = "0xcb9eff"
+cyan = "0x39c5cf"
+white = "0xd9dee3"
+
+[colors.bright]
+black = "0x9ea7b3"
+red = "0xffb1af"
+green = "0x4ae168"
+yellow = "0xf7c843"
+blue = "0x91cbff"
+magenta = "0xcb9eff"
+cyan = "0x39c5cf"
+white = "0xd9dee3"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+transparent_background_colors = true
+
+[keyboard]
+bindings = [
+    { key="N", mods="Control", action="SpawnNewInstance" },
+    { key="V", mods="Alt", action="ToggleViMode" },
+    { key="C", mods="Alt", action="ClearSelection" },
+    { key="F", mods="Control", action="SearchForward" },
+    { key="F", mods="Control | Shift", action="SearchBackward" },
+    # Vi Mode Selection
+    { key="S", mods="Alt", mode="Vi", action="ToggleNormalSelection" },
+
+    { key="ArrowLeft", mods="Alt", mode="Vi", action="SemanticLeft" },
+    { key="ArrowRight", mods="Alt", mode="Vi", action="SemanticRight" },
+]
