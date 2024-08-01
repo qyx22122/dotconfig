@@ -45,7 +45,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -78,10 +78,9 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
--- Add useless gaps
-beautiful.useless_gap = 10
 -- }}}
-
+--Useless gap
+beautiful.useless_gap = 7
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
